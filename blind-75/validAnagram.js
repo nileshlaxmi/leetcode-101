@@ -21,6 +21,11 @@ class Solution {
      * @return {boolean}
      */
     isAnagram(s, t) {
-        
+        const newS = s.split('')?.sort()?.join('')
+        const newT = t.split('')?.sort()?.join('')
+        return newS === newT
     }
 }
+
+console.log(new Solution().isAnagram("anagram", "nagaram"))
+console.log(new Solution().isAnagram("rat", "car"))
