@@ -1,4 +1,21 @@
 /**
+ * Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+ * Example 1:
+ * Input: nums = [1,2,3,1]
+ * Output: true
+ * 
+ * Example 2:
+ * Input: nums = [1,2,3,4]
+ * Output: false
+ * 
+ * Example 3:
+ * Input: nums = [1,1,1,3,3,4,3,2,4,2]
+ * Output: true
+ * 
+ * Constraints:
+ * 1 <= nums.length <= 10^5
+ * -10^9 <= nums[i] <= 10^9
+ * 
  * @param {number[]} nums
  * @return {boolean}
  */
@@ -20,6 +37,15 @@ var containsDuplicate = function (nums) {
                 return true
             }
         
+    }
+    return false
+};
+
+var containsDuplicateOptimalSolution = function (nums) {
+    const seen = new Set()
+    for( const i of nums){
+        if(seen.has(i)) return true
+        seen.add(i)
     }
     return false
 };
