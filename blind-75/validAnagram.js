@@ -19,6 +19,9 @@ class Solution {
      * @param {string} s
      * @param {string} t
      * @return {boolean}
+     * 
+     * Time Complexity => O(n log n)
+     * Space Complexity => O(1)
      */
     isAnagram(s, t) {
         const newS = s.split('')?.sort()?.join('')

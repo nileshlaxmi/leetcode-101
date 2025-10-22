@@ -19,37 +19,49 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-// var containsDuplicate = function (nums) {
-//     for (let i = 0; i < nums.length; i++) {
-//         for (let j = i + 1; j < nums.length; j++) {
-//             if (nums[i] == nums[j]) {
-//                 return true
-//             }
-//         }
-//     }
-//     return false
-// };
-
+/*
+ * Space Complexity => O(n^2)
+ * Time Complexity => O(1)
+*/
 var containsDuplicate = function (nums) {
-    nums = nums.sort((a,b) => a - b)
-    for (let i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i-1]) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] == nums[j]) {
                 return true
             }
-        
+        }
     }
     return false
 };
 
+/**
+ * Time Complexity => O(n log n)
+ * Space Complexity => O(1)
+ */
+var containsDuplicateSecondSolution = function (nums) {
+    nums = nums.sort((a, b) => a - b)
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] == nums[i - 1]) {
+            return true
+        }
+
+    }
+    return false
+};
+
+/**
+ * Time Complexity => O(n)
+ * Space Complexity => O(n)
+ */
 var containsDuplicateOptimalSolution = function (nums) {
     const seen = new Set()
-    for( const i of nums){
-        if(seen.has(i)) return true
+    for (const i of nums) {
+        if (seen.has(i)) return true
         seen.add(i)
     }
     return false
 };
 
-console.log(containsDuplicate([1,2,3,1]))
-console.log(containsDuplicate([1,2,3,4]))
-console.log(containsDuplicate([1,1,1,3,3,4,3,2,4,2]))
+console.log(containsDuplicate([1, 2, 3, 1]))
+console.log(containsDuplicate([1, 2, 3, 4]))
+console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
